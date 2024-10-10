@@ -5,15 +5,15 @@
     </div>
 
     <div class="flex flex-col gap-2">
-      <div class="relative">
-        <button class="hover:bg-slate-100 px-2 rounded-lg" onclick="openDropdown(<%= task.id %>)">
+      <div class="relative" data-controller="dropdown">
+        <button data-action="click->dropdown#toggle" class="hover:bg-slate-100 px-2 rounded-lg">
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#5f6368">
             <path d="M0 0h24v24H0z" fill="none"/>
             <path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
           </svg>
         </button>
 
-        <div id="dropdown-<%= task.id %>" class="hidden absolute z-10 bg-white flex flex-col gap-2 border shadow-lg rounded-lg p-3 text-slate-500 font-medium">
+        <div data-dropdown-target="content" class="hidden absolute z-10 bg-white flex flex-col gap-2 border shadow-lg rounded-lg p-3 text-slate-500 font-medium">
           <!-- Todo: change icon color to match text color -->
           <%= link_to task, class: "flex items-center gap-2" do %>
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#5f6368">
@@ -35,11 +35,3 @@
     </div>
   </div>
 </div>
-
-<script>
-  function openDropdown(taskId) {
-    const dropdown = document.getElementById(`dropdown-${taskId}`);
-
-    dropdown.classList.toggle("hidden");
-  }
-</script>

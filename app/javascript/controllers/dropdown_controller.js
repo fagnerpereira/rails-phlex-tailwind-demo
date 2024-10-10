@@ -4,12 +4,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["content"]
 
-  connect() {
-    console.log("hello from dropdown controller")
-  }
-
   toggle() {
-    console.log("toggle")
     this.contentTarget.classList.toggle("hidden")
   }
 }

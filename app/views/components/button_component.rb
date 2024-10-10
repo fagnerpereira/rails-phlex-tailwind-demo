@@ -6,7 +6,7 @@ class ButtonComponent < ApplicationComponent
   end
 
   def view_template
-    button class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" do
+    button class: "rounded-lg py-3 px-5 bg-blue-500 text-white block font-medium" do
       @text
     end
   end
