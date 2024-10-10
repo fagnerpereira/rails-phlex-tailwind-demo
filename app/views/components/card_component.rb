@@ -2,7 +2,8 @@
 
 class CardComponent < ApplicationComponent
   def view_template
-    h1 { "Card" }
-    p { "Find me in app/views/components/card_component.rb" }
+    div class: "border shadow-lg rounded-lg p-5 items-center" do
+      yield
+    end
   end
 end
