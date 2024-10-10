@@ -1,11 +1,9 @@
 class TasksController < ApplicationController
-  include Pagy::Backend
-
   before_action :set_task, only: %i[ show edit update destroy ]
 
   # GET /tasks
   def index
-    @pagy, @tasks = pagy(Task.all)
+    @pagy, @tasks = pagy(Task.all.order(created_at: :desc))
   end
 
   # GET /tasks/1

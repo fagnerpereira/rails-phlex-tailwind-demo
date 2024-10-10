@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   # GET /users
   def index
-    @users = User.all
+    @pagy, @users = pagy(User.all.order(created_at: :desc))
   end
 
   # GET /users/1
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to @user, notice: "User was successfully created."
+      redirect_to users_url, notice: "User was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
