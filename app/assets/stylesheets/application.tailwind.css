@@ -2,7 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer components {
+  .cor-preta {
+    @apply bg-black text-white;
+  }
+
   .pagy.nav {
     @apply flex space-x-1 font-semibold text-sm text-gray-500;
     a:not(.gap) {

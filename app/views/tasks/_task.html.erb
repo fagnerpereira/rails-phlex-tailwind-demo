@@ -1,37 +1,35 @@
-<div id="<%= dom_id task %>" class="border shadow-lg rounded-lg p-5 items-center">
-  <div class="flex justify-between w-full">
-    <div class="font-medium text-xl text-slate-500">
-      <%= task.name %>
-    </div>
+<%= render List::ItemComponent.new(item: task) do |item| %>
+  <%= item.title do %>
+    <%= task.name %>
+  <% end %>
 
-    <div class="flex flex-col gap-2">
-      <div class="relative" data-controller="dropdown">
-        <button data-action="click->dropdown#toggle" class="hover:bg-slate-100 px-2 rounded-lg">
+  <%= item.actions do %>
+    <%= render DropdownComponent.new do |dropdown| %>
+      <%= dropdown.trigger do %>
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#5f6368">
+          <path d="M0 0h24v24H0z" fill="none"/>
+          <path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+        </svg>
+      <% end %>
+
+      <%= dropdown.content do %>
+        <!-- Todo: change icon color to match text color -->
+        <%= link_to task, class: "flex items-center gap-2" do %>
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#5f6368">
             <path d="M0 0h24v24H0z" fill="none"/>
-            <path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+            <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
           </svg>
-        </button>
+          <span>Show</span>
+        <% end %>
 
-        <div data-dropdown-target="content" class="hidden absolute z-10 bg-white flex flex-col gap-2 border shadow-lg rounded-lg p-3 text-slate-500 font-medium">
-          <!-- Todo: change icon color to match text color -->
-          <%= link_to task, class: "flex items-center gap-2" do %>
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#5f6368">
-              <path d="M0 0h24v24H0z" fill="none"/>
-              <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
-            </svg>
-            <span>Show</span>
-          <% end %>
-
-          <%= button_to task, method: :delete, class: "flex items-center gap-2" do %>
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#5f6368">
-              <path d="M0 0h24v24H0z" fill="none"/>
-              <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
-            </svg>
-            <span>Delete</span>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+        <%= button_to task, method: :delete, class: "flex items-center gap-2" do %>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#5f6368">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+          </svg>
+          <span>Delete</span>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

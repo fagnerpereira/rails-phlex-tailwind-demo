@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class ListComponent < ApplicationComponent
-  include Phlex::Rails::Helpers::DOMClass
   include Phlex::Rails::Helpers::Request
   include Pagy::Frontend
 
