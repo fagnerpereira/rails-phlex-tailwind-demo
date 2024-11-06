@@ -45,7 +45,7 @@ group :development do
 end
 
 
-gem "pagy", "~> 9.1"
+gem "pagy", "~> 9.2"
 
 gem "phlex-rails", "~> 1.2"
 gem "pry"
