@@ -47,5 +47,5 @@ end
 
 gem "pagy", "~> 9.3"
 
-gem "phlex-rails", "~> 1.2"
+gem "phlex-rails", "~> 2.1"
 gem "pry"
