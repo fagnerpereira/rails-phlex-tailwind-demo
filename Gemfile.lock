@@ -147,9 +147,9 @@ GEM
     nokogiri (1.18.3-x86_64-linux-musl)
       racc (~> 1.4)
     pagy (9.3.4)
-    phlex (1.10.3)
-    phlex-rails (1.2.2)
-      phlex (>= 1.10, < 2)
+    phlex (2.1.1)
+    phlex-rails (2.1.2)
+      phlex (~> 2.1.0)
       railties (>= 6.1, < 9)
     pp (0.6.2)
       prettyprint
@@ -276,7 +276,7 @@ DEPENDENCIES
   debug
   importmap-rails
   pagy (~> 9.3)
-  phlex-rails (~> 1.2)
+  phlex-rails (~> 2.1)
   pry
   puma (>= 5.0)
   rails (~> 8.0.2)
